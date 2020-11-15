@@ -17,6 +17,7 @@ object WordCount extends InitSpark {
     WordCount1(spark,rdds)
     WordCount2(spark,rdds)
 
+    close
   }
 
   def WordCount1(spark: SparkSession, rdds: RDD[String]) = {
