@@ -47,6 +47,15 @@ dependencies {
     compile 'org.apache.spark:spark-core_'+scalaVersionShort+':'+sparkVersion
     compile group: 'org.apache.kafka', name: 'kafka_'+scalaVersionShort, version: '2.4.1'
     compile group: 'commons-io', name: 'commons-io', version: '2.5'
+
+//    Google Cloud dependencies
+    compile ('com.google.cloud.bigdataoss:gcs-connector:hadoop2-1.9.17'){
+        exclude group:"javax.jms", module:"jms"
+        exclude group:"com.sun.jdmk", module:"jmxtools"
+        exclude group:"com.sun.jmx", module:"jmxri"
+    }
+//    compile 'com.google.cloud.bigdataoss:bigquery-connector:hadoop2-1.2.0'
+
 }
 
 task run(type: JavaExec, dependsOn: classes) {
