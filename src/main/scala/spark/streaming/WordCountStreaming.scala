@@ -21,16 +21,15 @@ object WordCountStreaming extends InitSpark {
       .load()
 
     // Split the lines into words
-    val words = {
-      lines.as[String].flatMap(_.split("[^\\w]"))
-    }
+    val words = lines.as[String].flatMap(_.split("[^\\w]"))
+
 
     // Generate running word count
     val wordCounts = words.groupBy("value").count()
 
     // Start running the query that prints the running counts to the console
     val query = wordCounts.writeStream
-      .outputMode("complete")
+      .outputMode("complete") // complete printout all output for all df, update only for required.
       .format("console")
       .start()
 
