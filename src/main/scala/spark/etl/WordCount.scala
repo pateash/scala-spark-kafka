@@ -1,4 +1,4 @@
-package spark
+package spark.etl
 
 import org.apache.spark.rdd.RDD
 import org.apache.spark.sql.{DataFrame, SaveMode, SparkSession}

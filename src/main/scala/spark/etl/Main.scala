@@ -1,4 +1,4 @@
-package spark
+package spark.etl
 
 import org.apache.spark.sql.functions._
 

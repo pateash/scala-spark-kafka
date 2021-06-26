@@ -1,5 +1,4 @@
-package spark
-
+package spark.etl
 
 object GoogleCloud extends InitSpark {
 

@@ -1,8 +1,4 @@
-package spark
-
-import org.apache.spark.rdd.RDD
-import org.apache.spark.sql.functions.col
-import org.apache.spark.sql.{DataFrame, SaveMode, SparkSession}
+package spark.etl
 
 
 object Test extends InitSpark {
