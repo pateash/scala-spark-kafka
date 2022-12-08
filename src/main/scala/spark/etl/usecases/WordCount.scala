@@ -50,6 +50,9 @@ object WordCount extends InitSpark {
 
     writeCsv(wordCount,"output/WCOutput2")
 
+    // one other possible way
+    //df.withColumn('word', explode(split($"string", "[^\\w]"))).groupBy("word").count().sort('count', ascending=False).show()
+
   }
 
   def writeCsv(df:DataFrame,path:String) ={
