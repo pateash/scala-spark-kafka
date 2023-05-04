@@ -1,0 +1,71 @@
+package spark.etl.ecryption
+
+import org.apache.spark.rdd.RDD
+import org.apache.spark.sql.{DataFrame, SaveMode, SparkSession}
+import spark.etl.InitSpark
+
+/*POC - checking IO on PGP encrypted files
+encrypt, decrypt files using PGP is linux based command which encypts/decrypts
+the file via public and private key mechanism
+* */
+
+
+object EncryptedIO extends InitSpark {
+
+  def main(args: Array[String]) = {
+
+    val sc = spark.sparkContext
+
+    val  rdds = sc.textFile("data/wordcount.txt")
+
+    println(rdds.collect().mkString(","))
+
+    WordCount1(spark,rdds)
+    WordCount2(spark,rdds)
+
+    close
+  }
+
+  def WordCount1(spark: SparkSession, rdds: RDD[String]) = {
+    import spark.implicits._
+
+    val output = rdds.flatMap(_.split("[^\\w]"))
+      .map((_, 1))
+      .reduceByKey(_ + _)
+
+    val wordCountDF = output.toDF("word", "count")
+
+    writeCsv(wordCountDF,"output/WCOutput1")
+  }
+
+  def WordCount2(spark: SparkSession, rdds: RDD[String]) = {
+    import spark.implicits._
+
+    val words=rdds
+      .flatMap(x=>x.split("[^\\w]"))
+      .map((_,1))
+      .toDF("word","count")
+
+    //    words.show(false)
+
+
+    val wordCount=words.groupBy("word")
+      .sum("count").as("count")
+    //    wordCount.show(false)
+
+    writeCsv(wordCount,"output/WCOutput2")
+
+    // one other possible way
+    //df.withColumn('word', explode(split($"string", "[^\\w]"))).groupBy("word").count().sort('count', ascending=False).show()
+
+  }
+
+  def writeCsv(df:DataFrame,path:String) ={
+   df.coalesce(1)
+     .write
+      .mode(SaveMode.Overwrite)
+      .option("header","true")
+      .csv(path)
+  }
+
+}
