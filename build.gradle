@@ -39,7 +39,7 @@ dependencies {
 
     compile 'org.apache.spark:spark-mllib_'+scalaVersionShort+':'+sparkVersion
     compile 'org.apache.spark:spark-sql_'+scalaVersionShort+':'+sparkVersion
-    compile 'org.apache.spark:spark-streaming-flume-assembly_'+scalaVersionShort+':'+sparkVersion
+//    compile 'org.apache.spark:spark-streaming-flume-assembly_'+scalaVersionShort+':'+sparkVersion
     compile 'org.apache.spark:spark-graphx_'+scalaVersionShort+':'+sparkVersion
     compile 'org.apache.spark:spark-launcher_'+scalaVersionShort+':'+sparkVersion
     compile 'org.apache.spark:spark-catalyst_'+scalaVersionShort+':'+sparkVersion
@@ -47,6 +47,7 @@ dependencies {
     compile 'org.apache.spark:spark-core_'+scalaVersionShort+':'+sparkVersion
     compile group: 'org.apache.kafka', name: 'kafka_'+scalaVersionShort, version: '2.4.1'
     compile group: 'commons-io', name: 'commons-io', version: '2.5'
+    compile group: 'io.prophecy', name: 'prophecy-libs_2.12', version: '6.3.0-3.3.0'
 
 //    Google Cloud dependencies
 //    compile ('com.google.cloud.bigdataoss:gcs-connector:hadoop2-1.9.17'){
