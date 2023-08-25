@@ -1,14 +1,13 @@
-package spark.etl.usecases.DroolsRuleEngineJDK8.Person
-
+package src.main.resources.rules
+import spark.etl.drools.DroolsRunner.Person
 rule "Adult Rule"
 when
     $person: Person(age >= 18)
 then
-//    $person.setAge($person.getAge() + 5);
-    $person.age = 1000
-//    modify($person) {
-//        setAge($person.getAge() + 1)
-//    }
+    $person.setAge($person.getAge() + 5);
+    modify($person) {
+        setAge($person.getAge() + 1)
+    }
 end
 
 rule "Senior Rule"

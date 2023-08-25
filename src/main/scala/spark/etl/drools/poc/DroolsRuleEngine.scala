@@ -1,4 +1,4 @@
-package spark.etl.drools
+package spark.etl.drools.poc
 
 import org.apache.spark.sql.{Row, SparkSession}
 import org.drools.compiler.kie.builder.impl.KieServicesImpl

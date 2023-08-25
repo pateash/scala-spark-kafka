@@ -1,0 +1,39 @@
+package src.main.resources.rules
+import spark.etl.drools.DroolsRunner.Person
+
+rule "Infant Rule"
+when
+  $person: Person(age < 5)
+then
+  modify($person) {
+    setClassification("INFANT")
+  }
+end
+
+rule "Child Rule"
+when
+  $person: Person(age >= 5 && age < 18 )
+then
+  modify($person) {
+    setClassification("CHILD")
+  }
+end
+
+
+rule "Adult Rule"
+when
+  $person: Person(age >= 18 && age < 60)
+then
+  modify($person) {
+    setClassification("ADULT")
+  }
+end
+
+rule "Senior Rule"
+when
+  $person: Person(age >= 60)
+then
+  modify($person) {
+    setClassification("SENIOR")
+  }
+end

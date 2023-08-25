@@ -1,4 +1,4 @@
-package spark.etl.drools
+package spark.etl.drools.poc
 
 import org.apache.spark.sql.SparkSession
 import org.apache.spark.sql.functions._
@@ -9,15 +9,10 @@ object SparkDroolsIntTest {
 //  	sys.props.+=(("hadoop.home.dir","C:\\hadoop_home"))
 
   	val sparkConf = new SparkConf().setMaster("local").setAppName("Sample")
-  	val sparkContext = new SparkContext(sparkConf)
   	val spark = SparkSession.builder().appName("Sample").getOrCreate()
 
-  	/*
-  	 * Expected output json sample
-  	 */
   	val df_Drools = spark.read.option("header", "true").csv("./src/main/resources/Sample.csv")
   	df_Drools.show();
-  	println(df_Drools.schema)
   	val df_Drools_Applied = df_Drools.withColumn("response", testFun(df_Drools("traffic_light"),lit(0)))
   	df_Drools_Applied.show();
   	println(df_Drools_Applied.schema)

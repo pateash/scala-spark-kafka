@@ -52,6 +52,7 @@ dependencies {
     compile "org.drools:drools-core:" + droolsVersion
     compile "org.drools:drools-compiler:" + droolsVersion
     compile "org.drools:drools-compiler:" + droolsVersion
+    compile "org.drools:drools-mvel:" + droolsVersion
     compile group: 'junit', name: 'junit', version: '4.13.1'
 
 //    Google Cloud dependencies

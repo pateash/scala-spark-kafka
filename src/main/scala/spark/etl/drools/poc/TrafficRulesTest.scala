@@ -1,15 +1,15 @@
-package spark.etl.usecases
+package spark.etl.drools.poc
 
-import scala.collection.JavaConversions._
 import org.drools.core.impl.KnowledgeBaseFactory
-import org.junit.Assert
-import org.junit.Test
+import org.junit.{Assert, Test}
 import org.kie.api.event.rule.{ObjectDeletedEvent, ObjectInsertedEvent, ObjectUpdatedEvent, RuleRuntimeEventListener}
 import org.kie.api.io.ResourceType
 import org.kie.api.runtime.KieSession
 import org.kie.api.runtime.rule.RuleContext
 import org.kie.internal.builder.KnowledgeBuilderFactory
 import org.kie.internal.io.ResourceFactory
+
+import scala.collection.JavaConversions._
 
 class TrafficRulesTest {
 
