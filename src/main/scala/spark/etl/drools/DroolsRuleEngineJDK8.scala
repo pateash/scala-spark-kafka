@@ -1,4 +1,4 @@
-package spark.etl.usecases
+package spark.etl.drools
 
 import org.apache.spark.sql.{Row, SparkSession}
 import org.kie.api.KieServices

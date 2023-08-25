@@ -1,8 +1,8 @@
-package spark.etl.usecases
+package spark.etl.drools
 
-import org.apache.spark.{SparkConf, SparkContext}
 import org.apache.spark.sql.SparkSession
 import org.apache.spark.sql.functions._
+import org.apache.spark.{SparkConf, SparkContext}
 
 object SparkDroolsIntTest {
   def main(args:Array[String]){

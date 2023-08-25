@@ -1,10 +1,7 @@
-package spark.etl.usecases
+package spark.etl.drools
 
 import org.apache.spark.sql.{Row, SparkSession}
 import org.drools.compiler.kie.builder.impl.KieServicesImpl
-import org.kie.api.KieServices
-import org.kie.api.io.ResourceType
-import org.kie.internal.io.ResourceFactory
 
 object DroolsRuleEngine {
   def main(args: Array[String]): Unit = {
