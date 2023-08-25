@@ -1,0 +1,57 @@
+package src.main.java
+
+import com.poc.drools.spark.util.Utils.Traffic;
+import com.poc.drools.spark.util.Utils.TrafficResponse;
+import com.poc.drools.spark.util.Utils.DrivingStyle;
+
+import com.poc.drools.spark.service.CityLocator;
+global CityLocator cityLocator;
+
+import function com.poc.drools.spark.service.Functions.*;
+
+dialect "mvel"
+no-loop
+
+rule "traffic light green"
+when
+  $traffic : Traffic ( light == "green" )
+then
+  insertTrafficResponse(kcontext, $traffic, "proceed")
+end
+
+rule "traffic light red"
+when 
+  $traffic : Traffic ( light == "red" )
+then
+  insertTrafficResponse(kcontext, $traffic, "stop")
+end
+
+rule "traffic light yellow and driving crazy"
+when 
+  $traffic : Traffic ( light == "yellow" )
+  DrivingStyle ( style == "crazy" )
+then
+  insertTrafficResponse(kcontext, $traffic, "accelerate")
+end
+
+rule "traffic light yellow and driving sane"
+when 
+  $traffic : Traffic ( light == "yellow" )
+  DrivingStyle ( style == "sane" )
+then
+  insertTrafficResponse(kcontext, $traffic, "stop")
+end
+
+rule "city is Chennai"
+when
+  $traffic : Traffic (eval (cityLocator.city($traffic) == "Chennai" ) )
+then
+  insertDrivingStyle(kcontext, "crazy")
+end
+
+rule "city is not Chennai"
+when
+  $traffic : Traffic (eval (cityLocator.city($traffic) != "Chennai" ) )
+then
+  insertDrivingStyle(kcontext, "sane")
+end
