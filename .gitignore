@@ -1,5 +1,9 @@
 #added by @ashishpatel0720
 
+#scala worksheets
+*.sc
+
+
 output/
 data/large-data/
 
