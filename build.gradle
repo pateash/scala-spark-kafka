@@ -4,7 +4,7 @@ plugins {
 }
 
 group 'template.live.ashish.spark'
-version '1.1-SNAPSHOT'
+version '1.2-SNAPSHOT'
 
 apply plugin: 'java'
 apply plugin: 'scala'
@@ -47,8 +47,8 @@ dependencies {
     compile 'org.apache.spark:spark-core_'+scalaVersionShort+':'+sparkVersion
     compile group: 'org.apache.kafka', name: 'kafka_'+scalaVersionShort, version: '2.4.1'
     compile group: 'commons-io', name: 'commons-io', version: '2.5'
-    compile group: 'io.prophecy', name: 'prophecy-libs_2.12', version: '6.3.0-3.3.0'
-    compile group: 'io.prophecy', name: 'prophecy-libs_2.12', version: '6.3.0-3.3.0'
+//    compile group: 'io.prophecy', name: 'prophecy-libs_2.12', version: '6.3.0-3.3.0'
+//    compile group: 'io.prophecy', name: 'prophecy-libs_2.12', version: '6.3.0-3.3.0'
     compile "org.drools:drools-core:" + droolsVersion
     compile "org.drools:drools-compiler:" + droolsVersion
     compile "org.drools:drools-mvel:" + droolsVersion

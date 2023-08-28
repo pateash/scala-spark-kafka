@@ -37,17 +37,22 @@ object DroolsRunnerV2 {
    implicit val kieBase: KieBase = kieHelper.build()
     println("Number of loaded rules: " + kieBase.getKiePackages.iterator().next.getRules.size())
 
-    val data = Seq(
-      ("Stewie", 3, "UNKNOWN"),
-      ("Alan", 15, "UNKNOWN"),
-      ("Alice", 25, "UNKNOWN"),
-      ("Bob", 60,  "UNKNOWN"),
-      ("Charlie", 18,  "UNKNOWN")
-    )
-    val columns = Seq("name", "age", "classification")
-    val df = spark.createDataFrame(data).toDF(columns: _*)
-    df.show()
+//    val data = Seq(
+//      ("Stewie", 3, "UNKNOWN"),
+//      ("Alan", 15, "UNKNOWN"),
+//      ("Alice", 25, "UNKNOWN"),
+//      ("Bob", 60,  "UNKNOWN"),
+//      ("Charlie", 18,  "UNKNOWN")
+//    )
+//    val columns = Seq("name", "age", "classification")
+//    val df = spark.createDataFrame(data).toDF(columns: _*)
 
+    val df = spark.read
+      .option("header","true")
+      .option("inferSchema","true")
+      .csv("data/drools-input/People.csv")
+
+    df.show()
     val resultRDD2 = df.rdd.mapPartitions(processPartitionPerSession)
     val resultDF2 = spark.createDataFrame(resultRDD2, df.schema)
     resultDF2.show()
