@@ -1,5 +1,5 @@
 package src.main.resources.rules
-import live.ashish.spark.etl.drools.DroolsRunner.Person
+import live.ashish.spark.etl.drools.DroolsRunnerUtils.Person
 
 rule "Infant Rule"
 when

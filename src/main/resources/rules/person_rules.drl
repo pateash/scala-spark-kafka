@@ -1,5 +1,5 @@
 package src.main.resources.rules
-import spark.etl.drools.DroolsRunner.Person
+import live.ashish.spark.etl.drools.DroolsRunnerUtils.Person
 rule "Adult Rule"
 when
     $person: Person(age >= 18)
