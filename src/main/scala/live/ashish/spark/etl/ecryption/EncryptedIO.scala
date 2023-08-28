@@ -1,11 +1,16 @@
-package spark.etl.usecases
+package live.ashish.spark.etl.ecryption
 
 import org.apache.spark.rdd.RDD
 import org.apache.spark.sql.{DataFrame, SaveMode, SparkSession}
-import spark.etl.InitSpark
+import live.ashish.spark.etl.InitSpark
+
+/*POC - checking IO on PGP encrypted files
+encrypt, decrypt files using PGP is linux based command which encypts/decrypts
+the file via public and private key mechanism
+* */
 
 
-object WordCount extends InitSpark {
+object EncryptedIO extends InitSpark {
 
   def main(args: Array[String]) = {
 

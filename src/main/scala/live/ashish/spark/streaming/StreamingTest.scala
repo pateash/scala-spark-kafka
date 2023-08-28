@@ -1,4 +1,4 @@
-package spark.streaming
+package live.ashish.spark.streaming
 
 import org.apache.spark.sql.SparkSession
 

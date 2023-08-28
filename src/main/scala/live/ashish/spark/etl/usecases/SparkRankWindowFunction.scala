@@ -1,8 +1,8 @@
-package spark.etl.usecases
+package live.ashish.spark.etl.usecases
 
 import org.apache.spark.sql.expressions.Window
 import org.apache.spark.sql.functions._
-import spark.etl.InitSpark
+import live.ashish.spark.etl.InitSpark
 
 
 object SparkRankWindowFunction extends InitSpark {

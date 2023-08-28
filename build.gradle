@@ -3,15 +3,15 @@ plugins {
     id 'com.github.johnrengelman.shadow' version '1.2.3'
 }
 
-group 'template.spark'
-version '1.0-SNAPSHOT'
+group 'template.live.ashish.spark'
+version '1.1-SNAPSHOT'
 
 apply plugin: 'java'
 apply plugin: 'scala'
 apply plugin: 'idea'
 
-sourceCompatibility = JavaVersion.VERSION_11
-targetCompatibility = JavaVersion.VERSION_11
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8
 
 configurations {
     provided
@@ -50,7 +50,6 @@ dependencies {
     compile group: 'io.prophecy', name: 'prophecy-libs_2.12', version: '6.3.0-3.3.0'
     compile group: 'io.prophecy', name: 'prophecy-libs_2.12', version: '6.3.0-3.3.0'
     compile "org.drools:drools-core:" + droolsVersion
-    compile "org.drools:drools-compiler:" + droolsVersion
     compile "org.drools:drools-compiler:" + droolsVersion
     compile "org.drools:drools-mvel:" + droolsVersion
     compile group: 'junit', name: 'junit', version: '4.13.1'

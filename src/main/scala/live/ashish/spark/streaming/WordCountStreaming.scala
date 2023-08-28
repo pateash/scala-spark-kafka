@@ -1,6 +1,6 @@
-package spark.streaming
+package live.ashish.spark.streaming
 
-import spark.etl.InitSpark
+import live.ashish.spark.etl.InitSpark
 
 /* Start port and provide output  ( refer  - https://spark.apache.org/docs/2.1.0/structured-streaming-programming-guide.html#quick-example )
 *  $nc -lk 9999

@@ -1,8 +1,8 @@
-package ashish.test
+package live.ashish.test
 
 import org.apache.spark.sql.functions.col
 import org.apache.spark.sql.types.{IntegerType, StringType, StructField, StructType}
-import spark.etl.InitSpark
+import live.ashish.spark.etl.InitSpark
 
 
 object CsvHeaderFooterSkip extends InitSpark {

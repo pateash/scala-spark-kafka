@@ -1,4 +1,4 @@
-package ashish.testpkg
+package live.ashish.testpkg
 
 object config {
   def method(str: String): String = {

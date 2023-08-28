@@ -1,4 +1,4 @@
-package ashish
+package live.ashish
 
 import org.apache.spark.internal.config
 
@@ -8,7 +8,7 @@ object ConditionalPackageImport {
 
  def main(args: Array[String]): Unit = {
 //   (1 to 10).map(println)
-   val package_import = "ashish.testpkg2.config"
+   val package_import = "live.ashish.testpkg2.config"
    if (Try(Class.forName(package_import)).isSuccess) {
      println(Class.forName(package_import).getMethod("method", classOf[String]).invoke(Class.forName(package_import).newInstance(), "value"))
    } else {

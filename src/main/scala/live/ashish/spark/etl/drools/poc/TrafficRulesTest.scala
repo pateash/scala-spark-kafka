@@ -1,4 +1,4 @@
-package spark.etl.drools.poc
+package live.ashish.spark.etl.drools.poc
 
 import org.drools.core.impl.KnowledgeBaseFactory
 import org.junit.{Assert, Test}
@@ -80,9 +80,9 @@ class TrafficRulesTest {
     val session = kbase.newKieSession()
 
     session.addEventListener(new RuleRuntimeEventListener {
-      override def objectInserted(event: ObjectInsertedEvent): Unit = println(event.getObject + " ashish inserted")
-      override def objectUpdated(event: ObjectUpdatedEvent): Unit = println(event.getObject + " ashish updated")
-      override def objectDeleted(event: ObjectDeletedEvent): Unit = println(event.getOldObject + " ashish deleted")
+      override def objectInserted(event: ObjectInsertedEvent): Unit = println(event.getObject + " live.ashish inserted")
+      override def objectUpdated(event: ObjectUpdatedEvent): Unit = println(event.getObject + " live.ashish updated")
+      override def objectDeleted(event: ObjectDeletedEvent): Unit = println(event.getOldObject + " live.ashish deleted")
     })
 
 

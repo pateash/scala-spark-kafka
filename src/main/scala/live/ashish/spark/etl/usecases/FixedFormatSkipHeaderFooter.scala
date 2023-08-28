@@ -1,4 +1,4 @@
-package spark.etl.usecases
+package live.ashish.spark.etl.usecases
 
 import _root_.io.prophecy.abinitio.dml.DMLSchema.parse
 import _root_.io.prophecy.libs.FFSchemaRecord

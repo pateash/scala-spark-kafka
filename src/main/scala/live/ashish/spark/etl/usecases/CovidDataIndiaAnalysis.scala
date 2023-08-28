@@ -1,7 +1,7 @@
-package spark.etl.usecases
+package live.ashish.spark.etl.usecases
 
 import org.apache.spark.sql.SparkSession
-import spark.etl.usecases.CovidDataAnalysis.CovidData
+import live.ashish.spark.etl.usecases.CovidDataAnalysis.CovidData
 
 import java.sql.Timestamp
 
@@ -20,7 +20,7 @@ object CovidDataIndiaAnalysis {
       .option("header","true")
       .csv("data/csv/*_data_india*") // not included this long data 60MB in code
 //    df.show(false)
-    println("ashish")
+    println("live.ashish")
     println(df.count())
   }
 }

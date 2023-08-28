@@ -1,4 +1,4 @@
-package spark.etl.drools.poc
+package live.ashish.spark.etl.drools.poc
 
 import org.apache.spark.sql.SparkSession
 import org.apache.spark.sql.functions._

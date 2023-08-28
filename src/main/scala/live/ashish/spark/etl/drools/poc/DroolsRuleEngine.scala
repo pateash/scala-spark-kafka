@@ -1,4 +1,4 @@
-package spark.etl.drools.poc
+package live.ashish.spark.etl.drools.poc
 
 import org.apache.spark.sql.{Row, SparkSession}
 import org.drools.compiler.kie.builder.impl.KieServicesImpl
@@ -13,7 +13,7 @@ object DroolsRuleEngine {
     val drlContent = scala.io.Source.fromFile(ruleFilePath).mkString
 
 //    val hdfsRuleFilePath = "hdfs://your-hdfs-host:port/path/to/your/rules.drl"
-//    val drlContent = spark.read.textFile(hdfsRuleFilePath).collect().mkString("\n")
+//    val drlContent = live.ashish.spark.read.textFile(hdfsRuleFilePath).collect().mkString("\n")
 
 //    val kieServices = KieServices.Factory.get()
     val kieServices = new KieServicesImpl()
@@ -55,7 +55,7 @@ object DroolsRuleEngine {
 
     println(resultRDD)
     // Convert the RDD back to a DataFrame
-//    val resultDF = spark.createDataFrame(resultRDD).toDF(columns: _*)
+//    val resultDF = live.ashish.spark.createDataFrame(resultRDD).toDF(columns: _*)
 //
 //    resultDF.show()
 

@@ -1,4 +1,4 @@
-package spark.etl.drools
+package live.ashish.spark.etl.drools
 
 import org.apache.spark.sql.{Row, SparkSession}
 import org.kie.api.builder.Message

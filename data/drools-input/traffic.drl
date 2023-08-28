@@ -20,14 +20,14 @@ then
 end
 
 rule "traffic light red"
-when 
+when
   $traffic : Traffic ( light == "red" )
 then
   insertTrafficResponse(kcontext, $traffic, "stop")
 end
 
 rule "traffic light yellow and driving crazy"
-when 
+when
   $traffic : Traffic ( light == "yellow" )
   DrivingStyle ( style == "crazy" )
 then
@@ -35,7 +35,7 @@ then
 end
 
 rule "traffic light yellow and driving sane"
-when 
+when
   $traffic : Traffic ( light == "yellow" )
   DrivingStyle ( style == "sane" )
 then

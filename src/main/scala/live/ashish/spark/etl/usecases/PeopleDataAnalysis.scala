@@ -1,4 +1,4 @@
-package spark.etl.usecases
+package live.ashish.spark.etl.usecases
 
 import org.apache.spark.sql.SparkSession
 import org.apache.spark.sql.functions._
@@ -19,7 +19,7 @@ object PeopleDataAnalysis{
     val version = spark.version
     println("SPARK VERSION = " + version)
 
-//    val sumHundred = spark.range(1, 101).reduce(_ + _)
+//    val sumHundred = live.ashish.spark.range(1, 101).reduce(_ + _)
 //    println(f"Sum 1 to 100 = $sumHundred")
 
     println("Reading from csv file: people-example.csv")

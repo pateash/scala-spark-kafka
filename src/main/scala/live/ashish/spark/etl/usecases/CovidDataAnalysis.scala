@@ -1,4 +1,4 @@
-package spark.etl.usecases
+package live.ashish.spark.etl.usecases
 
 import org.apache.spark.sql.SparkSession
 
