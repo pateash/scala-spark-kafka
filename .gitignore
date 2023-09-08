@@ -236,6 +236,7 @@ xcuserdata/
 
 # Package Files #
 *.jar
+!evernorth*.jar
 *.war
 *.ear
 
