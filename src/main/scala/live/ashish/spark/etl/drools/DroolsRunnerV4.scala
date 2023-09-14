@@ -25,7 +25,6 @@ object DroolsRunnerV4 {
     kieHelper.addResource(drlResource)
 
     val results = kieHelper.verify()
-
     if (results.hasMessages(org.kie.api.builder.Message.Level.ERROR)) {
       println("Errors occurred during rule verification:")
       results.getMessages(org.kie.api.builder.Message.Level.ERROR).forEach(message => {
@@ -89,7 +88,15 @@ object DroolsRunnerV4 {
         val beanInstance = createBeanInstance(beanClassName, row)
         try {
           val kieSession = kieBase.newKieSession()
+//          kieSession.addEventListener(new RuleRuntimeEventListener {
+//            override def objectInserted(event: ObjectInsertedEvent): Unit = println(event.getObject + " inserted")
+//            override def objectUpdated(event: ObjectUpdatedEvent): Unit = println(event.getObject + " updated from " + event.getOldObject)
+//            override def objectDeleted(event: ObjectDeletedEvent): Unit = println(event.getOldObject + " deleted")
+//          })
           kieSession.insert(beanInstance)
+         val rulesFired = kieSession.fireAllRules()
+          println(s"Rules fired $rulesFired")
+
           val fields = beanInstance.getClass.getDeclaredFields
           // Create a sequence of values from the bean instance
           val values = fields.map { field =>
