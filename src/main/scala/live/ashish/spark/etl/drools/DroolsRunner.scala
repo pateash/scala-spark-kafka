@@ -1,7 +1,7 @@
 package live.ashish.spark.etl.drools
 
-import live.ashish.spark.etl.drools.DroolsRunnerUtils.processPartitionPerSession
-import org.apache.spark.sql.{Row, SparkSession}
+import live.ashish.spark.etl.drools.DroolsRunnerUtils.{Person, processPartitionPerSession}
+import org.apache.spark.sql.{Encoders, Row, SparkSession}
 import org.kie.api.builder.Message
 import org.kie.api.event.rule.{ObjectDeletedEvent, ObjectInsertedEvent, ObjectUpdatedEvent, RuleRuntimeEventListener}
 import org.kie.api.{KieBase, KieServices}
@@ -9,6 +9,7 @@ import org.kie.api.{KieBase, KieServices}
 // use jdk8
 // this creates single session for each partition and per row
 object DroolsRunner {
+  case class Test(a: String)
   def main(args: Array[String]): Unit = {
     val spark = SparkSession.builder()
       .appName("DroolsRuleEngine")

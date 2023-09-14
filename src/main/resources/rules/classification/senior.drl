@@ -1,0 +1,23 @@
+package src.main.resources.rules.classification
+import live.ashish.spark.etl.drools.DroolsRunnerUtils.Person
+
+import live.ashish.spark.etl.drools.DroolsRunnerUtils.Person
+
+
+rule "Senior Rule"
+when
+  $person: Person(age >= 60 && age<75)
+then
+  modify($person) {
+    setClassification("SENIOR")
+  }
+end
+
+rule "Super Senior Rule"
+when
+  $person: Person(age >= 75)
+then
+  modify($person) {
+    setClassification("SUPER SENIOR")
+  }
+end

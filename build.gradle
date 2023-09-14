@@ -48,11 +48,11 @@ dependencies {
     compile group: 'org.apache.kafka', name: 'kafka_'+scalaVersionShort, version: '2.4.1'
     compile group: 'commons-io', name: 'commons-io', version: '2.5'
 //    compile group: 'io.prophecy', name: 'prophecy-libs_2.12', version: '6.3.0-3.3.0'
-//    compile group: 'io.prophecy', name: 'prophecy-libs_2.12', version: '6.3.0-3.3.0'
     compile "org.drools:drools-core:" + droolsVersion
     compile "org.drools:drools-compiler:" + droolsVersion
     compile "org.drools:drools-mvel:" + droolsVersion
     compile group: 'junit', name: 'junit', version: '4.13.1'
+    compile 'org.projectlombok:lombok:1.18.28'
 
 //    Google Cloud dependencies
 //    compile ('com.google.cloud.bigdataoss:gcs-connector:hadoop2-1.9.17'){
