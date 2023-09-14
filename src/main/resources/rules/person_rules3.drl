@@ -1,0 +1,39 @@
+package src.main.resources.rules
+import live.ashish.spark.internals.People
+
+rule "Infant Rule"
+when
+  $people: People(age < 5)
+then
+  modify($people) {
+    setClassification("INFANT")
+  }
+end
+
+rule "Child Rule"
+when
+  $people: People(age >= 5 && age < 18 )
+then
+  modify($people) {
+    setClassification("CHILD")
+  }
+end
+
+
+rule "Adult Rule"
+when
+  $people: People(age >= 18 && age < 60)
+then
+  modify($people) {
+    setClassification("ADULT")
+  }
+end
+
+rule "Senior Rule"
+when
+  $people: People(age >= 60)
+then
+  modify($people) {
+    setClassification("SENIOR")
+  }
+end

@@ -4,7 +4,7 @@ import lombok.*;
 
 import java.io.Serializable;
 
-@Data @AllArgsConstructor
+@Data @AllArgsConstructor @NoArgsConstructor
 public class Person implements Serializable {
     private String name;
     private int age;
