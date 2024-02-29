@@ -2,7 +2,7 @@ package live.ashish.spark.etl.usecases
 
 import org.apache.spark.sql.SparkSession
 import org.apache.spark.sql.functions._
-import WordCount.reader
+import TestSkipHeader.reader
 
 
 

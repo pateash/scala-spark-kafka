@@ -1,11 +1,18 @@
 package live.ashish.spark.etl.utils.formats
 
 import live.ashish.spark.etl.InitSpark
+import org.apache.spark.sql.SparkSession
 
 object SparkGenerateFile extends InitSpark{
 
   def main(args: Array[String]): Unit = {
-
+      val input_path="data/csv/single_file_creation/input"
+      val output_path="data/csv/single_file_creation/output/output.csv_tmp"
+      val df =spark.read
+        .csv(input_path)
+      df.limit(5).write.csv(output_path)
+      concatenateFiles(spark, ".csv", "overwrite", output_path, output_path.replace("_tmp",""), true,false)
+     spark.read.csv(output_path.replace("_tmp","")).show(false)
   }
 
 
