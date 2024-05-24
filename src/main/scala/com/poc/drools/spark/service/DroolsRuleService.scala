@@ -1,6 +1,6 @@
 package com.poc.drools.spark.service
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 import org.drools.core.impl.KnowledgeBaseFactory
 import org.kie.api.io.ResourceType
 import org.kie.api.runtime.KieSession
@@ -52,7 +52,7 @@ object DroolsRuleService {
 
   def getResults(sess: KieSession,
       className: String): Option[Any] = {
-    val fsess = sess.getObjects().filter(o =>
+    val fsess = sess.getObjects().asScala.filter(o =>
       o.getClass.getName().endsWith(className))
     if (fsess.size > 0) Some(fsess.toList.head)
     else None

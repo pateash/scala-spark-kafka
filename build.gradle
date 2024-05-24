@@ -53,7 +53,8 @@ dependencies {
     compile "org.drools:drools-mvel:" + droolsVersion
     compile group: 'junit', name: 'junit', version: '4.13.1'
     compile 'org.projectlombok:lombok:1.18.28'
-
+    // https://mvnrepository.com/artifact/commons-net/commons-net
+    compile 'com.hierynomus:sshj:0.38.0' // For SSH download
 //    Google Cloud dependencies
 //    compile ('com.google.cloud.bigdataoss:gcs-connector:hadoop2-1.9.17'){
 //        exclude group:"javax.jms", module:"jms"
